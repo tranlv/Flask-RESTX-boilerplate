@@ -1,0 +1,43 @@
+version: '3'
+services:
+  db:
+    image: mariadb:10.4
+    container_name: db
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--default-authentication-plugin=mysql_native_password']
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    expose:
+      - '${DB_PORT}'
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  backend:
+    build:
+        context: .
+        dockerfile: ./docker/app/Dockerfile
+    ports:
+        - "5000:5000"
+    volumes:
+      - ./app:/opt/app 
+      - ./from app.extensions:/opt/from app.extensions 
+      - ./migrations:/opt/migrations  
+    depends_on:
+        - db
+    environment:
+      - FLASK_DEBUG=1
+      - FLASK_APP=app.manage:flask_app
+    env_file: ./.env
+    
+    
+# override the default network
+networks:
+  default:
+    name: app-network
+
+volumes: 
+  dbdata:

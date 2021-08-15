@@ -1,0 +1,18 @@
+hi: Chào thế giới !
+# zero, one, few, many are keyword for plural switch
+example_plural:
+  zero: There is %{count} person of %{field}. Please add more
+  one: Congrats, you have one person in your network
+  few: Congrats, you have several person in your network
+  many: Congrats, there are many people in your network
+validation:
+  error:
+    invalid_password: Mật khẩu không hợp lệ
+    invalid_display_name: Tên hiển thị không hợp lệ!
+    missing_field: Vui lòng nhập vào trường %{field}
+    missing_policy: Vui lòng chấp nhận điều khoản dịch vụ!
+    wrong_data_format: Dữ liệu không đúng định dạng!
+authentication:
+  error:
+    not_login: Vui lòng đăng nhập
+    user_deactivated: Tài khoản đã bị vô hiệu hóa
