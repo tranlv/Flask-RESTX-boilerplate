@@ -1,0 +1,18 @@
+hi: Hello world !
+# zero, one, few, many are keyword for plural switch
+example_plural:
+  zero: There is %{count} person of %{field}. Please add more
+  one: Congrats, you have one person in your network
+  few: Congrats, you have several person in your network
+  many: Congrats, there are many people in your network
+validation:
+  error:
+    invalid_password: Password is not valid
+    invalid_display_name: The display name is invalid!
+    missing_field: Please provide field %{field}
+    missing_policy: Policy is not accepted!
+    wrong_data_format: Wrong data format!
+authentication:
+  error:
+    not_login: Pleas login to continue
+    user_deactivated: Your account has been deactivated
