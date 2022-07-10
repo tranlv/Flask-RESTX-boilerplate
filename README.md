@@ -121,8 +121,6 @@ To set up development environment, simply run:
 $ pip install -r requirements.txt
 ```
 
-
 You can also put a [vote to get the project](https://github.com/vinta/awesome-python/pull/2104) more visible to others.
-
 
 If you like this project, you can buy buy me a [pizza](https://www.buymeacoffee.com/tranlv) to motivate me improve on the project.
