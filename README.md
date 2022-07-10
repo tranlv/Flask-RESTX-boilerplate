@@ -1,8 +1,20 @@
 # **Flask-RESTX-boilerplate**
 
-The base code structure for Flask-RESTX
+---
+The base code structure for [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) which makes use of namespaces
 
-Directory 
+
+---
+Table of contents
+---
+
+1. [Directory Convention](#Directory Convention)
+2. [Development instruction](#Development instruction) 
+3. [Test and Code quality](#Test and Code quality)
+4. [Versioning](#Versioning)
+
+
+Directory Convention
 ---
 
 ### `/app`
@@ -10,6 +22,10 @@ Directory
 #### `/app/manage.py`
 
 - The entry point of the code
+
+#### `/app/config.py`
+
+- Store configuration from env variables
 
 #### `/app/modules`
 
@@ -55,9 +71,11 @@ $ docker build -f ./docker/app/Dockerfile .
 $ docker run <name of image> -p 5000:5000
 ```
 
+- Swagger is at /api/v1/openapi
+
 ### Recommended code contribution and submission 
 
-- The live branch should be named **master**
+- The live branch should be named **master** or **main**
 
 - The main feature branch is named **dev** where development is branched out from dev
 
@@ -65,51 +83,50 @@ $ docker run <name of image> -p 5000:5000
 $ git checkout -b dev origin/dev
 $ git checkout -b <your branch name> dev
 
-// do your development
+# do your development
 
 $ git add --all 
 $ git commit -s -am "your message"
 
-// You might also need to rebase from upstream remote branch before pushing
+# You might also need to rebase from upstream remote branch before pushing
 $ git rebase upstream/dev
 
-// To push your branch
+# Save new packages to app/requirements
+$ pip3 freeze > <path to project>/app/requirements.txt
+
+# To push your branch
 $ git push -u origin <your branch name>
 ```
 
-- Then you can create MR with the source branch is your branch and the target branch is dev. When we release, we merge dev into master, tag them and deploy.
+- Then you can create MR with the source branch is your branch and the target branch is dev. 
+- When we release, we merge dev into master, tag them and deploy.
 
 
-### Code quality
-- API design convention:  follow [this guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
-- Code style: Pep8 coding style
-- Third-party library: add library + version into app/requirements.txt 
-- Quote: Please use either ‘’ or “” but not both
-- import statement:
-	- Please use full path import
-	- Recomend to import only necessary function not entire package, i.e. if you only need sqrt():
-	```
-		Recommended:  		from math import sqrt
-		Not recommended:  	import math
-	```
+### Test and Code quality
 
-- Status code: Please use English only, i.e. in send_error and send_result.
-- Exception - EAFP principle: use except/try instead of if/else, also if possible please use specific exceptions instead of generic exception.
-- Please use clear commit message
-- Please add unit test for your code
-- Plese use pylint before pushing code
+#### Unit test
 
 ```bash
-$ pip3 install pylint
-$ pylint <your files>
+$ pytest tests
 ```
 
-- Save your packages to app/requirements
+#### Code quality
+- API design convention:  follow [this guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
+- Code style: Pep8 coding style
+- Quote: Please use either ‘’ or “” but not both
+- import statement: better to import only necessary function not entire package, i.e. if you only need sqrt():
+```bash
+	Recommended:  		from math import sqrt
+	Not recommended:  	import math
+```
+- Exception - EAFP principle: use except/try instead of if/else, and try to use specific exceptions instead of generic exception.
 
 ```bash
-$ pip3 freeze > <path to project>/app/requirements.txt
+$ pylint ./app
+$ mypy ./app
+$ black ./tests
 ```
 
 Versioning
 ---
-We use [SemVer](http://semver.org/) for versioning.
+We use [SemVer](http://semver.org/) for versioning. Please see CHANGELOG.md for more details.
