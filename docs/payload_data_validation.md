@@ -3,9 +3,9 @@
 1. Each endpoint which require the data inuput from user must define a schema
 
 ``` python
-from app.extensions.schema import HoovadaSchema
+from app.extensions.schema import SampleSchema
 
-class EmailRegistrationSchema(HoovadaSchema):
+class EmailRegistrationSchema(SampleSchema):
     email = fields.Email(
         required=True,
         error_messages={

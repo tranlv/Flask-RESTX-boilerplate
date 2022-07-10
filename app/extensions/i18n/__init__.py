@@ -1,4 +1,12 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import i18n
+
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 
 def configure_i18n(translation_path, locate):

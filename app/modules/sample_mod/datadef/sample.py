@@ -3,7 +3,7 @@ from app.extensions.utils.util import (
     is_valid_password,
     is_valid_display_name
 )
-from app.extensions.schema import HoovadaSchema
+from app.extensions.schema import SampleSchema
 from app.extensions.i18n import i18n, lazy_translate
 
 
@@ -17,7 +17,7 @@ def validate_display_name(data):
         raise ValidationError(i18n.t("validation.error.invalid_display_name"))
 
 
-class EmailRegistrationSchema(HoovadaSchema):
+class EmailRegistrationSchema(SampleSchema):
     email = fields.Email(
         required=True,
         error_messages={

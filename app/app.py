@@ -22,10 +22,10 @@ from app.extensions.observability.logging import logging
 from app.extensions.i18n import configure_i18n
 from app.config import BaseConfig
 
-__author__ = "hoovada.com team"
-__maintainer__ = "hoovada.com team"
-__email__ = "admin@hoovada.com"
-__copyright__ = "Copyright (c) 2020 - 2020 hoovada.com . All Rights Reserved."
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 
 # Config logging output

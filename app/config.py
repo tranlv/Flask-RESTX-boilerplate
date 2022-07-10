@@ -9,10 +9,10 @@ from dotenv import load_dotenv
 
 # own modules
 
-__author__ = "hoovada.com team"
-__maintainer__ = "hoovada.com team"
-__email__ = "admin@hoovada.com"
-__copyright__ = "Copyright (c) 2020 - 2020 hoovada.com . All Rights Reserved."
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 class BaseConfig:
 
@@ -26,7 +26,7 @@ class BaseConfig:
     DB_PASSWORD = environ.get('DB_PASSWORD', '')
     DB_HOST = environ.get('DB_HOST', '')
     DB_PORT = environ.get('DB_PORT', '3306')
-    DB_NAME = environ.get('DB_NAME', 'hoovada')
+    DB_NAME = environ.get('DB_NAME', '')
     DB_CHARSET = 'utf8mb4'
     MAXIMUM_RETRY_ON_DEADLOCK = int(environ.get('MAXIMUM_RETRY_ON_DEADLOCK', 10))
     BCRYPT_LOG_ROUNDS = 13 # Number of times a password is hashed

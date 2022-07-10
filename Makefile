@@ -1,4 +1,4 @@
-REGISTRY   		:= registry.gitlab.com/hoovada/hoovada-python-base
+REGISTRY   		:= 
 REPO_NAME   	:= $$(/usr/bin/basename -s .git `git config --get remote.origin.url`)
 GIT_COMMIT 		:= $$(git rev-parse --short HEAD)
 GIT_BRANCH 		:= $$(git branch | grep \* | cut -d ' ' -f2)

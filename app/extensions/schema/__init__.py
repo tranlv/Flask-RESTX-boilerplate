@@ -1,8 +1,16 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
 from flask_restx import fields as restx_fields
 from marshmallow import Schema, fields
 
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
-class HoovadaSchema(Schema):
+class SampleSchema(Schema):
     TYPE_MAPPING = {
         fields.String: restx_fields.String,
         fields.URL: restx_fields.Url,

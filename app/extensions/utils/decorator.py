@@ -12,11 +12,10 @@ from marshmallow import ValidationError
 from app.extensions.utils.response import send_error
 from app.extensions.i18n import i18n
 
-__author__ = "hoovada.com team"
-__maintainer__ = "hoovada.com team"
-__email__ = "admin@hoovada.com"
-__copyright__ = "Copyright (c) 2020 - 2020 hoovada.com . All Rights Reserved."
-
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 def token_required(f):
 

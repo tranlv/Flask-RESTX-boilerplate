@@ -12,10 +12,10 @@ from flask_restx import Api
 from app.modules import *
 from app.extensions.utils.response import send_result
 
-__author__ = "hoovada.com team"
-__maintainer__ = "hoovada.com team"
-__email__ = "admin@hoovada.com"
-__copyright__ = "Copyright (c) 2020 - 2020 hoovada.com . All Rights Reserved."
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 
 class HTTPSApi(Api):
@@ -26,9 +26,9 @@ class HTTPSApi(Api):
 
 
 def init_api():
-    api = HTTPSApi(title='Hoovada APIs',
+    api = HTTPSApi(title='APIs',
                    version='1.0',
-                   description='The Hoovada APIs',
+                   description='The PIs',
                    authorizations={
                        'apikey': {
                            'type': 'apiKey',

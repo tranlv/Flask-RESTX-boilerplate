@@ -17,16 +17,15 @@ from flask import request
 # own modules
 from app.config import BaseConfig
 
-__author__ = "hoovada.com team"
-__maintainer__ = "hoovada.com team"
-__email__ = "admin@hoovada.com"
-__copyright__ = "Copyright (c) 2020 - 2020 hoovada.com . All Rights Reserved."
-
+__author__ = ""
+__maintainer__ = ""
+__email__ = ""
+__copyright__ = ""
 
 def get_logged_user(self, req):
 
-    if 'X-Hoovada-Jwt' in req.headers:
-        auth_token = req.headers['X-Hoovada-Jwt']
+    if 'X-yoursite-Jwt' in req.headers:
+        auth_token = req.headers['X-yoursite-Jwt']
     else:
         return None
 
