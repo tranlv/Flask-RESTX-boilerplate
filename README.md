@@ -1,6 +1,5 @@
 # **Flask-RESTX-boilerplate**
 
-
 <p align="center">
 	<a href="https://saythanks.io/to/vutransingapore"><img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg"></a>
 </p>
@@ -8,7 +7,6 @@
 
 ---
 The boilerplate for the project using restful [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) framework
-
 
 ---
 Table of contents
@@ -18,7 +16,7 @@ Table of contents
 2. [Development instruction](#Development-instruction) 
 3. [Test and Code quality](#Test-and-Code-quality)
 4. [Versioning](#Versioning)
-5. [Motivation](#Motivation)
+5. [Contribution](#Contribution)
 
 
 Directory Convention
@@ -80,35 +78,6 @@ $ docker run <name of image> -p 5000:5000
 
 - Swagger is at /api/v1/openapi
 
-### Recommended code contribution and submission 
-
-- The live branch should be named **master** or **main**
-
-- The main feature branch is named **dev** where development is branched out from dev
-
-```bash
-$ git checkout -b dev origin/dev
-$ git checkout -b <your branch name> dev
-
-# do your development
-
-$ git add --all 
-$ git commit -s -am "your message"
-
-# You might also need to rebase from upstream remote branch before pushing
-$ git rebase upstream/dev
-
-# Save new packages to app/requirements
-$ pip3 freeze > <path to project>/app/requirements.txt
-
-# To push your branch
-$ git push -u origin <your branch name>
-```
-
-- Then you can create MR with the source branch is your branch and the target branch is dev. 
-- When we release, we merge dev into master, tag them and deploy.
-
-
 ### Test and Code quality
 
 #### Unit test
@@ -140,6 +109,19 @@ Versioning
 We use [SemVer](http://semver.org/) for versioning. Please see CHANGELOG.md for more details.
 
 
-Motivation
+Contribution
 ---
+
+Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/master/CODE-OF-CONDUCT.md).
+
+To set up development environment, simply run:
+
+```bash
+$ pip install -r requirements.txt
+```
+
+
+You can also put a [vote to get the project](https://github.com/vinta/awesome-python/pull/2104) more visible to others.
+
+
 If you like this project, you can buy buy me a [pizza](https://www.buymeacoffee.com/tranlv) to motivate me improve on the project.
