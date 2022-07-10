@@ -1,9 +1,14 @@
 # **Flask-RESTX-boilerplate**
 
----
-The base code structure for [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/)
 
-If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/vutransingapore) or buy me a [pizza](https://www.buymeacoffee.com/tranlv)
+<p align="center">
+	<a href="https://saythanks.io/to/vutransingapore"><img src="https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg"></a>
+</p>
+
+
+---
+The boilerplate for the project using restful [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) framework
+
 
 ---
 Table of contents
@@ -13,6 +18,7 @@ Table of contents
 2. [Development instruction](#Development-instruction) 
 3. [Test and Code quality](#Test-and-Code-quality)
 4. [Versioning](#Versioning)
+5. [Motivation](#Motivation)
 
 
 Directory Convention
@@ -132,3 +138,8 @@ $ black ./tests
 Versioning
 ---
 We use [SemVer](http://semver.org/) for versioning. Please see CHANGELOG.md for more details.
+
+
+Motivation
+---
+If you like this project, you can buy buy me a [pizza](https://www.buymeacoffee.com/tranlv) to motivate me improve on the project.
