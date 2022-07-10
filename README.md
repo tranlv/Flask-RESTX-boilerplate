@@ -112,7 +112,8 @@ We use [SemVer](http://semver.org/) for versioning. Please see CHANGELOG.md for 
 Contribution
 ---
 
-Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/wiki-link/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/wiki-link/blob/master/CODE-OF-CONDUCT.md).
+Please follow our contribution convention at [contribution instructions](https://github.com/tranlyvu/Flask-RESTX-boilerplate/blob/master/CONTRIBUTING.md) and [code of conduct](https://github.com/tranlyvu/
+Flask-RESTX-boilerplate/blob/master/CODE-OF-CONDUCT.md).
 
 To set up development environment, simply run:
 
