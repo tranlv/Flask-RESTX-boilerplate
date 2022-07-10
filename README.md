@@ -3,6 +3,7 @@
 ---
 The base code structure for [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/)
 
+If you like this project, feel fee to leave a few words of appreciation here [![Say Thanks!](https://img.shields.io/badge/Say%20Thanks-!-1EAEDB.svg)](https://saythanks.io/to/vutransingapore) or buy me a [pizza](https://www.buymeacoffee.com/tranlv)
 
 ---
 Table of contents
