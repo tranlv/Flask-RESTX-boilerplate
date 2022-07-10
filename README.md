@@ -1,16 +1,16 @@
 # **Flask-RESTX-boilerplate**
 
 ---
-The base code structure for [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/) which makes use of namespaces
+The base code structure for [Flask-RESTX](https://flask-restx.readthedocs.io/en/latest/)
 
 
 ---
 Table of contents
 ---
 
-1. [Directory Convention](#Directory Convention)
-2. [Development instruction](#Development instruction) 
-3. [Test and Code quality](#Test and Code quality)
+1. [Directory Convention](#Directory-Convention)
+2. [Development instruction](#Development-instruction) 
+3. [Test and Code quality](#Test-and-Code-quality)
 4. [Versioning](#Versioning)
 
 
@@ -111,9 +111,15 @@ $ pytest tests
 ```
 
 #### Code quality
-- API design convention:  follow [this guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
-- Code style: Pep8 coding style
-- Quote: Please use either ‘’ or “” but not both
+
+```bash
+$ pylint ./app
+$ mypy ./app
+$ black ./tests
+```
+
+- API design: [guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
+- Code style: [Pep8 coding style](https://peps.python.org/pep-0008/)
 - import statement: better to import only necessary function not entire package, i.e. if you only need sqrt():
 ```bash
 	Recommended:  		from math import sqrt
@@ -121,11 +127,6 @@ $ pytest tests
 ```
 - Exception - EAFP principle: use except/try instead of if/else, and try to use specific exceptions instead of generic exception.
 
-```bash
-$ pylint ./app
-$ mypy ./app
-$ black ./tests
-```
 
 Versioning
 ---
