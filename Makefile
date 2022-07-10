@@ -11,17 +11,17 @@ base:
 	@docker push ${BASE}
 
 deploy-staging:
-	@kubectl set image deployment/base base=${BASE} -n <> --context=do-sgp1-test --record
+	@kubectl set image deployment/base base=${BASE} -n <> --context=test-context --record
 
 all-staging: base deploy-staging
 
 deploy-live:
-	@kubectl set image deployment/base base=${BASE} -n <> --context=do-sgp1-production --record
+	@kubectl set image deployment/base base=${BASE} -n <> --context=production-context --record
 
 all-live: base deploy-live
 
 login:
-	@docker login registry.gitlab.com
+	@docker login 
 
 run-local:
 	FLASK_APP=app.manage:flask_app python -m flask run

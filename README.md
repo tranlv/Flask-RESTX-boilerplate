@@ -2,13 +2,51 @@
 
 The base code structure for Flask-RESTX
 
+Directory 
+---
+
+### `/app`
+
+#### `/app/manage.py`
+
+- The entry point of the code
+
+#### `/app/modules`
+
+Flask-RESTX provides a way to use Flask’s blueprint. The main idea is to split your app into reusable namespaces. Here namespaces are organized in different modules
+
+- /app/modules/sample_mod:  each module is split into MVC, i.e. controller, dto, view
+	- /app/modules/sample_controller.py
+	- /app/modules/sample_dto.py
+	- /app/modules/sample_view.py
+
+- /app/modules/sample_mod/datadef: validation layer
+		
+#### `app/extensions` 
+
+we put everything else here, i.e. interfaces, cache, databases, ORM, i18n, monitor, logging, etc.
+
+
+### `/docker`
+
+- All related docker files
+
+
+### `/sql`
+
+- sql migration files
+
+### `/test`
+
+- unit test directory
+
+### `/docs`
+
+- Store documents files
+
 
 Development instruction
 ---
-
-### Directory 
-
-
 
 ### Running service with docker
 
@@ -17,11 +55,13 @@ $ docker build -f ./docker/app/Dockerfile .
 $ docker run <name of image> -p 5000:5000
 ```
 
-### Code submission 
-- Please branch out from dev or master, i.e.
+### Recommended code contribution and submission 
+
+- The live branch should be named **master**
+
+- The main feature branch is named **dev** where development is branched out from dev
 
 ```bash
-$ git clone <>
 $ git checkout -b dev origin/dev
 $ git checkout -b <your branch name> dev
 
@@ -36,13 +76,14 @@ $ git rebase upstream/dev
 // To push your branch
 $ git push -u origin <your branch name>
 ```
-- Then you can create MR with the source branch is your branch and the target branch is dev/master branch.
+
+- Then you can create MR with the source branch is your branch and the target branch is dev. When we release, we merge dev into master, tag them and deploy.
 
 
 ### Code quality
-- API design convention: please follow [this guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
-- Code style: Please follow  Pep8 coding style
-- Third-party library:  Please add library + version into app/requirements.txt 
+- API design convention:  follow [this guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
+- Code style: Pep8 coding style
+- Third-party library: add library + version into app/requirements.txt 
 - Quote: Please use either ‘’ or “” but not both
 - import statement:
 	- Please use full path import
@@ -57,16 +98,17 @@ $ git push -u origin <your branch name>
 - Please use clear commit message
 - Please add unit test for your code
 - Plese use pylint before pushing code
-```
+
+```bash
 $ pip3 install pylint
 $ pylint <your files>
 ```
 
 - Save your packages to app/requirements
-```
+
+```bash
 $ pip3 freeze > <path to project>/app/requirements.txt
 ```
-
 
 Versioning
 ---

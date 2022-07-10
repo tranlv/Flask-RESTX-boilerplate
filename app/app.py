@@ -5,6 +5,7 @@
 
 from logging.config import dictConfig
 import re
+
 # third-party modules
 from flask import Flask, g, request, session, Response, current_app
 from flask_cors import CORS
@@ -18,7 +19,7 @@ from app import config_by_name
 from app.extensions.utils.util import get_logged_user, get_client_ip
 from app.extensions.databases.db import db
 from app.extensions.databases.migrate import migrate
-from app.extensions.observability.logging import logging
+from app.extensions.logging import logging
 from app.extensions.i18n import configure_i18n
 from app.config import BaseConfig
 
@@ -103,8 +104,8 @@ def init_basic_app():
     def shutdown_session(exception=None):
         db.session.remove()
 
-    # app.before_request(log_request)
-    # app.after_request(log_response)
+    app.before_request(log_request)
+    app.after_request(log_response)
     return app
 
 
@@ -126,7 +127,7 @@ def init_app():
     if not database_exists(url):
         create_database(url, app.config['DB_CHARSET'])
 
-    # for extension in (db, migrate, mail, logging):
-    #     extension.init_app(app)
+    for extension in (db, migrate, mail, logging):
+         extension.init_app(app)
 
     return app

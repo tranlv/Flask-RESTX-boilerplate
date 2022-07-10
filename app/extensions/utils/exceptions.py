@@ -16,9 +16,8 @@ __email__ = ""
 __copyright__ = ""
 
 
-
-#from app.extension.observability.logging import loggers
-#_logger = loggers.get('main')
+from app.extension.logging import loggers
+_logger = loggers.get('main')
 
 
 class HTTPResponse:
@@ -152,16 +151,16 @@ class MethodIsNotAllowedException(ClientError):
             self._error['allowed_methods'] = allowed_methods
 
 
-#
-# class InvalidParametersException(ClientError):
-#     status_code = HTTPStatus.INVALID_PARAMETERS
-#     code = HTTPStatus.BAD_REQUEST.name
-#
-#     def __init__(self, error):
-#         super().__init__()
-#         self._error['message'] = 'Invalid parameter'
-#         self._error['detail'] = error
-#
+
+class InvalidParametersException(ClientError):
+    status_code = HTTPStatus.INVALID_PARAMETERS
+    code = HTTPStatus.BAD_REQUEST.name
+
+    def __init__(self, error):
+        super().__init__()
+        self._error['message'] = 'Invalid parameter'
+        self._error['detail'] = error
+
 
 class UnauthorizedException(ClientError):
     status_code = HTTPStatus.UNAUTHORIZED
@@ -173,20 +172,20 @@ class PermissionDeniedException(ClientError):
     status_code = HTTPStatus.FORBIDDEN
     code = HTTPStatus.FORBIDDEN.name
 
-#
-# class ClientDeniedException(ClientError):
-#     status_code = HTTPStatus.CLIENT_DENIED
-#     code = HTTPStatus.FORBIDDEN.name
-#
-#
-# class IpAddressDeniedException(ClientError):
-#     status_code = HTTPStatus.IP_ADDRESS_DENIED
-#     code = HTTPStatus.FORBIDDEN.name
-#
-#     def __init__(self, ip_address):
-#         super().__init__()
-#         self._error['message'] = f'IP Address {ip_address} is not allowed'
-#
+
+class ClientDeniedException(ClientError):
+    status_code = HTTPStatus.CLIENT_DENIED
+    code = HTTPStatus.FORBIDDEN.name
+
+
+class IpAddressDeniedException(ClientError):
+    status_code = HTTPStatus.IP_ADDRESS_DENIED
+    code = HTTPStatus.FORBIDDEN.name
+
+    def __init__(self, ip_address):
+        super().__init__()
+        self._error['message'] = f'IP Address {ip_address} is not allowed'
+
 
 class ClientBadRequestException(ClientError):
     status_code = HTTPStatus.BAD_REQUEST
