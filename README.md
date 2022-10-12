@@ -91,18 +91,9 @@ $ pytest tests
 ```bash
 $ pylint ./app
 $ mypy ./app
-$ black ./tests
+$ black ./app
+$ flake ./app
 ```
-
-- API design: [guide](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design)
-- Code style: [Pep8 coding style](https://peps.python.org/pep-0008/)
-- import statement: better to import only necessary function not entire package, i.e. if you only need sqrt():
-```bash
-	Recommended:  		from math import sqrt
-	Not recommended:  	import math
-```
-- Exception - EAFP principle: use except/try instead of if/else, and try to use specific exceptions instead of generic exception.
-
 
 Versioning
 ---

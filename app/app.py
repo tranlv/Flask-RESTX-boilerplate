@@ -75,6 +75,14 @@ sentry_sdk.init(
     traces_sample_rate=1.0
 )
 
+# Prometheus metrics exporter
+metrics = GunicornInternalPrometheusMetrics(init_basic_app())
+metrics.register_default(
+    metrics.counter(
+        'by_path_counter', 'Request count by request paths',
+        labels={'path': lambda: request.path}
+    )
+)
 
 def init_basic_app():
 
@@ -100,33 +108,19 @@ def init_basic_app():
         language = request.args.get('language', BaseConfig.DEFAULT_TRANSLATION_LANGUAGE)
         configure_i18n(BaseConfig.TRANSLATION_PATH, locate=language)
 
-    @app.teardown_appcontext
-    def shutdown_session(exception=None):
-        db.session.remove()
+        url = app.config['SQLALCHEMY_DATABASE_URI']
+        if not database_exists(url):
+            create_database(url, app.config['DB_CHARSET'])
+
 
     app.before_request(log_request)
     app.after_request(log_response)
     return app
 
 
-# Prometheus metrics exporter
-metrics = GunicornInternalPrometheusMetrics(init_basic_app())
-metrics.register_default(
-    metrics.counter(
-        'by_path_counter', 'Request count by request paths',
-        labels={'path': lambda: request.path}
-    )
-)
-
-
 def init_app():
     app = init_basic_app()
     CORS(app)
-
-    url = app.config['SQLALCHEMY_DATABASE_URI']
-    if not database_exists(url):
-        create_database(url, app.config['DB_CHARSET'])
-
     for extension in (db, migrate, mail, logging):
          extension.init_app(app)
 
