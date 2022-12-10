@@ -7,7 +7,7 @@ from logging.config import dictConfig
 import re
 
 # third-party modules
-from flask import Flask, g, request, session, Response, current_app
+from flask import Flask, g, request, Response, current_app
 from flask_cors import CORS
 from sqlalchemy_utils import create_database, database_exists
 from prometheus_flask_exporter.multiprocess import GunicornInternalPrometheusMetrics
@@ -93,25 +93,12 @@ def init_basic_app():
     @app.before_request
     def before_request():
         g.current_user = app.get_logged_user(request)
-
-        if 'role' not in session:
-            session['role'] = 'user'
-
-        g.current_user_is_admin = g.current_user.admin if g.current_user is not None else False
-        g.endorsed_topic_id = None
-        g.friend_belong_to_user_id = None
-        g.mutual_friend_ids = []
-
-        # language can be extends to load from user setting, eg: user.setting.locate
-        # or can be set to read default from accept-language header
-        # this is from language query parameter
         language = request.args.get('language', BaseConfig.DEFAULT_TRANSLATION_LANGUAGE)
         configure_i18n(BaseConfig.TRANSLATION_PATH, locate=language)
 
         url = app.config['SQLALCHEMY_DATABASE_URI']
         if not database_exists(url):
             create_database(url, app.config['DB_CHARSET'])
-
 
     app.before_request(log_request)
     app.after_request(log_response)
